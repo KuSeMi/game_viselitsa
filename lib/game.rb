@@ -1,7 +1,5 @@
-# encoding: utf-8
-#
-# Основной класс игры Game. Хранит состояние игры и предоставляет функции для
-# развития игры (ввод новых букв, подсчет кол-ва ошибок и т. п.).
+require 'unicode_utils/upcase'
+
 class Game
   def initialize(slovo)
     @letters = get_letters(slovo)
@@ -12,15 +10,13 @@ class Game
   end
 
   def get_letters(slovo)
-    if slovo == nil || slovo == ""
-      abort "Загадано пустое слово, нечего отгадывать. Закрываемся"
+    if slovo.nil? || slovo == ''
+      abort 'Задано пустое слово, не о чем играть. Закрываемся.'
+    else
+      slovo = slovo.encode('UTF-8')
     end
 
-    # Переводим слово в верхний регистр перед тем, как разбить на буквы.
-    # Используем для этого метод upcase в модуле UnicodeUtils.
-    slovo = UnicodeUtils.upcase(slovo.encode('UTF-8'))
-
-    return slovo.split("")
+    UnicodeUtils.upcase(slovo).split('')
   end
 
   def status

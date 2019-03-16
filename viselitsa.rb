@@ -8,17 +8,13 @@ if Gem.win_platform?
   end
 end
 
-# Подключаем библиотеку unicode_utils
-# gem install unicode_utils
-require_relative "unicode_utils"
-
-require_relative "game"
-require_relative "result_printer"
-require_relative "word_reader"
+require_relative "lib/game"
+require_relative "lib/result_printer"
+require_relative "lib/word_reader"
 
 current_path = File.dirname(__FILE__ )
 
-puts "Игра виселица. Версия 4\n\n"
+puts "Игра виселица. Версия 5\n\n"
 sleep 1
 
 printer = ResultPrinter.new

@@ -7,7 +7,7 @@ class ResultPrinter
     counter = 0
 
     while counter <= 7
-      file_name = current_path + "/image/#{counter}.txt"
+      file_name = current_path + "/../image/#{counter}.txt"
 
       # Проверку наличия файла можно заменить на блок begin-rescue, при этом
       # ловить только конкретную ошибку обращения к файловой системе.
